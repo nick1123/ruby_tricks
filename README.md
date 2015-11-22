@@ -11,3 +11,13 @@ Generate random int between 0 and 3
 
     $ rand(3)
     => 1
+
+Generate random int between 100 and 102
+
+    $ rand(100..102)
+    => 102
+
+Generate random int between 100 and 101
+
+    $ rand(100...102)
+    => 101
