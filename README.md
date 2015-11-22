@@ -66,3 +66,16 @@ ap data
     }
 ]
 ```
+
+### String concating
+
+Concat with '+' operator
+
+    "hello " + "world"
+    => "hello world"
+
+Works the same without '+' operator
+
+    "hello " "world"
+    => "hello world"
+
