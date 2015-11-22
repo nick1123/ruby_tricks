@@ -79,3 +79,15 @@ Works the same without '+' operator
     "hello " "world"
     => "hello world"
 
+### Substring search
+
+Here's a handy shorcut
+
+    s = "some string"
+    
+    s["some"]
+    => "some"
+    
+    s["fail"]
+    => nil
+
