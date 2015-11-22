@@ -41,3 +41,28 @@ ap [:q, :w, :e]
     [2] :e
 ]
 ```
+
+Print nested data
+
+```
+data = [{first: "Bob", last: "Smith", details: %w{:a, :b}}, {first: "Jim", last: "Cook", details: %w{:c, :w}}]
+ap data
+[
+    [0] {
+          :first => "Bob",
+           :last => "Smith",
+        :details => [
+            [0] ":a,",
+            [1] ":b"
+        ]
+    },
+    [1] {
+          :first => "Jim",
+           :last => "Cook",
+        :details => [
+            [0] ":c,",
+            [1] ":w"
+        ]
+    }
+]
+```
