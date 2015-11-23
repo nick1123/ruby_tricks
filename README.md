@@ -91,3 +91,92 @@ Here's a handy shorcut
     s["fail"]
     => nil
 
+### String interpolation shortcut
+
+String interpolation is easy to do in ruby:
+
+    a = 1
+    "string #{a}"
+    => "string 1"
+
+You can omit the {} if the variable has a leading sigil
+
+    @a = 2
+    $a = 3
+    "string #@a"
+    => "string 2"
+    "string #$a"
+    => "string 3"
+
+
+### Syntax checker
+
+The -c flag causes Ruby to check the syntax of the script and exit without executing. If there are no syntax errors, Ruby will print "Syntax OK" to the standard output.
+
+```
+ruby -c script.rb
+```
+
+
+### Ripper
+
+Sometimes we get a result that we don't expect:
+
+```
+puts {}.class
+=> NilClass
+```
+
+We can use Ripper to inspect what's going on in our call chain:
+
+```
+require 'awesome_print'
+require 'ripper'
+
+ap Ripper.sexp("puts {}.class")
+[
+    [0] :program,
+    [1] [
+        [0] [
+            [0] :call,
+            [1] [
+                [0] :method_add_block,
+                [1] [
+                    [0] :method_add_arg,
+                    [1] [
+                        [0] :fcall,
+                        [1] [
+                            [0] :@ident,
+                            [1] "puts",
+                            [2] [
+                                [0] 1,
+                                [1] 0
+                            ]
+                        ]
+                    ],
+                    [2] []
+                ],
+                [2] [
+                    [0] :brace_block,
+                    [1] nil,
+                    [2] [
+                        [0] [
+                            [0] :void_stmt
+                        ]
+                    ]
+                ]
+            ],
+            [2] :".",
+            [3] [
+                [0] :@ident,
+                [1] "class",
+                [2] [
+                    [0] 1,
+                    [1] 8
+                ]
+            ]
+        ]
+    ]
+]
+```
+
