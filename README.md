@@ -180,3 +180,67 @@ ap Ripper.sexp("puts {}.class")
 ]
 ```
 
+.class is being called on the code block {}, which is nil.
+
+Another example of using Ripper to build an abstract syntax tree:
+
+```
+ap Ripper.sexp("3 + (5 * 7)")
+[
+    [0] :program,
+    [1] [
+        [0] [
+            [0] :binary,
+            [1] [
+                [0] :@int,
+                [1] "3",
+                [2] [
+                    [0] 1,
+                    [1] 0
+                ]
+            ],
+            [2] :+,
+            [3] [
+                [0] :paren,
+                [1] [
+                    [0] [
+                        [0] :binary,
+                        [1] [
+                            [0] :@int,
+                            [1] "5",
+                            [2] [
+                                [0] 1,
+                                [1] 5
+                            ]
+                        ],
+                        [2] :*,
+                        [3] [
+                            [0] :@int,
+                            [1] "7",
+                            [2] [
+                                [0] 1,
+                                [1] 9
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ]
+    ]
+]
+```
+
+### Array zipping
+
+```
+names = %w[bob joe tom]
+ages = [19, 22, 24]
+
+names.zip(ages)
+=> [["bob", 19], ["joe", 22], ["tom", 24]]
+
+Hash[names.zip(ages)]
+=> {"bob"=>19, "joe"=>22, "tom"=>24}
+```
+
+	
