@@ -243,4 +243,41 @@ Hash[names.zip(ages)]
 => {"bob"=>19, "joe"=>22, "tom"=>24}
 ```
 
-	
+### Explode range to array
+
+```
+[*37..43]
+=> [37, 38, 39, 40, 41, 42, 43]
+```
+
+### JSON 
+
+```
+require 'json'
+data = [{a: 1, b: 2}, {c:3, d:4}]
+```
+
+Convert data to json:
+
+```
+j data
+=> [{"a":1,"b":2},{"c":3,"d":4}]
+```
+
+Pretty print json:
+
+```
+jj data
+[
+  {
+    "a": 1,
+    "b": 2
+  },
+  {
+    "c": 3,
+    "d": 4
+  }
+]
+```
+
+
